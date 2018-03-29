@@ -44,10 +44,12 @@ int main(int argc, char* argv[]) {
 				if('0'<=input_str[i]&&input_str[i]<='9') {
 						//if(IsFull(stack)) printf("Stack is full\n");
 						Push(stack, input_str[i]-'0');
-						printf("%d is inserted.\n",input_str[i]-'0');
 						i++;
 				}
 				
+		}
+		for(int n=0;n<stack->top+1;n++) {
+				printf("%d is inserted.\n",stack->key[n]);
 		}
 }
 		
