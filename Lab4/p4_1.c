@@ -24,7 +24,7 @@ int IsFull(Stack *S) {
 }
 void Push(Stack* S, int X) {
 		S->top++;
-		*(S->key) = X;
+		S->key[S->top] = X;
 
 }
 		
@@ -38,7 +38,7 @@ int main(int argc, char* argv[]) {
 
 		fgets(input_str, 101, fi);
 		max = strlen(input_str);
-		printf("Pushed numbers :");
+		printf("Pushed numbers :\n");
 		stack = CreateStack(max);
 		while(input_str[i] != '#') {
 				if('0'<=input_str[i]&&input_str[i]<='9') {
