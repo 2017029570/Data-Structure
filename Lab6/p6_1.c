@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define Max(a, b) (a>b) ? a : b
+#define Max(a, b) ((a>b) ? (a) : (b))
 
 typedef int ElementType;
 typedef struct AVLNode *AVLTree;
@@ -32,7 +32,9 @@ AVLTree Insert(ElementType X, AVLTree T) {
 				T->Right = Insert(X, T->Right);
 		}
 		else printf("Insertion Error : There is already %d in the tree.\n", X);
-		T->Height = Max(Height(T->Left), Height(T->Right)) + 1;
+//		printf("Max : %d\n", Max(Height(T->Left), Height(T->Right))); 
+		T->Height = Max(Height(T->Left), Height(T->Right))+1;
+//		printf("%d's Height : %d\n", T->Element, T->Height);
 		return T;
 }
 
