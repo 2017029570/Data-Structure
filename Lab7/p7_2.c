@@ -45,7 +45,7 @@ int DeleteMax(Heap *heap) {
 		}
 		int i,Child, LastElements, MinElements;
 		LastElements = heap->Elements[heap->Size--];
-		MinElements = heap->Elements[1];
+		MaxElements = heap->Elements[1];
 		for(i=1;i*2<=heap->Size;i=Child) {
 				Child = i*2;
 				if(Child != heap->Size && heap->Elements[Child]<heap->Elements[Child+1])
@@ -55,7 +55,7 @@ int DeleteMax(Heap *heap) {
 				else break;
 		}
 		heap->Elements[i] = LastElements;
-		return MinElements;
+		return MaxElements;
 }
 
 void PrintHeap(Heap *heap) {
