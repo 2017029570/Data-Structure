@@ -35,7 +35,12 @@ Graph CreateGraph(int* nodes,int x) {
 }
 
 void InsertEdge(Graph G, int a, int b) {
-		G->matrix[a-1][b-1] = 1;
+		int x,y;
+		for(int i=0;i<G->size;i++) {
+					if(G->node[i]==a) x=i;
+					else if(G->node[i]==b) y=i;
+		}
+		G->matrix[x][y] = 1;
 }
 
 int main(int argc, char* argv[]) {
@@ -60,10 +65,10 @@ int main(int argc, char* argv[]) {
 		while(fscanf(fi,"%s",c) != EOF) {
 				InsertEdge(graph, c[0]-'0', c[2]-'0');
 		}
-		printf(" ");
+		printf("  ");
 		for(int i=0;i<graph->size;i++) printf("%d ",n[i]);
 		printf("\n");
-		for(int i=1;i<graph->size+1;i++) {
+		for(int i=0;i<graph->size;i++) {
 				printf("%d ",n[i-1]);
 				for(int j=0;j<graph->size;j++)  printf("%d ",graph->matrix[i][j]);
 				printf("\n");
